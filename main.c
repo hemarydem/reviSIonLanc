@@ -43,25 +43,52 @@ int main(int argc, char ** argv) {
 
     //------- un tableau de 10 chaine de charactère-------//
     // tableau 2d
+    char str[10][10];
 
-    char **str = NULL;
-    str = malloc(sizeof(char*) * 10);
-    for (int j = 0; j < 10; i++)
-    {
-        str[j] = malloc(sizeof(char) * 50);
-    }
-    //strcp(str[0], "je ");
-    //printf("%s", str[0][0]);
-    str[0][0] = "je ";
-    str[1][0] = "suis ";
-    str[2][0] = "con";
-    str[3][0] = "tent ";
-    str[4][0] = " !";
-    for (int j = 0; j < 10; i++)
-    {
-        free(str[j][0]);
-    }
-    free(str);
+    //------- pointeur de tableau char taill 255-------//
 
+    char *str[255];// ;
+
+    //
+//------- tableau dynamique chaine de charactère --------//
+// la fonction retourne un char * ranger le resultat dans un char*
+// ne pas oublier de free
+char * dynaChar(int size) {
+    char * arrChar = NULL;
+    arrChar = malloc(sizeof(char) * size);
+    if(dynaChar != NULL) {
+        return arrChar;
+    }
+    printf("error\n");
+    return arrChar();
+}
+//------- tableau dynamique chaine de charactère --------//
+// la fonction retourne un char * ranger le resultat dans un char*
+// ne pas oublier de free
+char * dynaChar(int size) {
+    char * arrChar = NULL;
+    arrChar = malloc(sizeof(char) * size);
+    if(dynaChar != NULL) {
+        return arrChar;
+    }
+    printf("error\n");
+    return arrChar();
+}
+
+
+
+    //
+    int ** a = NULL;
+    a = malloc(sizeof(int*) * 10);
+    for (size_t i = 0; i < 10; i++)
+    {
+        a[i] = malloc(sizeof(int) * 10);
+    }
+
+    for (size_t i = 0; i < 10; i++)
+    {
+       free(a[i]);
+    }
+    free(a);
     return 0;
 }
