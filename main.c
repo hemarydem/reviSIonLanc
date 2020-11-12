@@ -41,5 +41,27 @@ int main(int argc, char ** argv) {
     }
     free(string);
 
+    //------- un tableau de 10 chaine de charactère-------//
+    // tableau 2d
+
+    char **str = NULL;
+    str = malloc(sizeof(char*) * 10);
+    for (int j = 0; j < 10; i++)
+    {
+        str[j] = malloc(sizeof(char) * 50);
+    }
+    //strcp(str[0], "je ");
+    //printf("%s", str[0][0]);
+    str[0][0] = "je ";
+    str[1][0] = "suis ";
+    str[2][0] = "con";
+    str[3][0] = "tent ";
+    str[4][0] = " !";
+    for (int j = 0; j < 10; i++)
+    {
+        free(str[j][0]);
+    }
+    free(str);
+
     return 0;
 }
