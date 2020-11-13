@@ -28,8 +28,43 @@ void testDEstrcmp() {
     {
         printf("error");
     }
-    
-    
     free(str1);
     free(str2);
+}
+
+char *getPw() {
+    char *str;
+    str = NULL;
+    str = malloc(sizeof(char) * 50);
+    printf("saisir le mot de passe\n");
+    fgets(str, 49, stdin);
+    //printf("%s|", str);
+    str[strlen(str) - 1]='\0';
+    //strtok(str, "\n");
+    //printf("%s|", str);
+    return str;
+}
+
+int isPw(char * passwd, char *str) {
+    if(strcmp(passwd, str) == 0) return 1;
+    return 0;
+}
+
+int passWtype(){
+    char *str;
+    str = malloc(sizeof(char) * 50);
+    int next = 0;
+    while (next < 5) {
+        str = getPw();
+        if(isPw("toto", str) == 1) {
+            printf("ok\n");
+            return 1;
+        } else
+        {
+            printf("mauvais mot de passe\n");
+            next++;
+        }
+    }
+    free(str);
+    return 0;
 }
