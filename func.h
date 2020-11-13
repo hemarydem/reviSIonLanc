@@ -6,7 +6,3 @@
 #endif
 
 //space to write prototype and struct
-void testDEstrcmp();
-char *getPw();
-int isPw(char * passwd, char *str);
-int passWtype();
