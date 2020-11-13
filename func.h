@@ -6,3 +6,4 @@
 #endif
 
 //space to write prototype and struct
+void testDEstrcmp();

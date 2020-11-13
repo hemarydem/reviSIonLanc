@@ -1,0 +1,116 @@
+III. Fonctions
+* = (strcpy, strncpy)
+* + (strcat, strncat)
+* ==
+   char name[25] = "hugo";
+   if (name == "hugo") ...
+
+   strcmp/strncmp
+
+   strcmp(chaine1, chaine2) ==>
+      0 si elles sont égales
+      >0 si la chaine 1 est > à la chaine 2
+      <0 si la chaine 1 est < à la chaine 2
+
+
+ex : "ba" > "ab"  1
+     "ca" > "abc" 2
+
+     Rq : non standards, stricmp,strnicmp ...
+
+exercice :
+  demander à l'utilisateur de taper un mot de passe
+  vérifier si le mot de passe est correct (bon mdp 2esgi)
+  l'utilisateur a droit à 3 essais
+  afficher soit OK soit KO
+
+
+  int check();
+
+int check() {
+    char password[25];
+    char *good = "2esgi";
+    int counter = 0;
+    int found = 0;
+
+    do {
+
+        fgets(password, 25, stdin);
+        if (password[strlen(password) - 1] == '\n')
+            password[strlen(password) - 1] = '\0';
+
+        if (strcmp(password, good) == 0)
+            found = 1;
+        ++counter;
+    } while (found == 0 && counter < 3);
+    return found;
+}
+
+
+int main(int argc, char **argv) {
+    printf(check() == 1 ? "OK" : "KO");
+    return 0;
+}
+
+* recherche
+  char * result = strchr(chaine, caractère)
+    ou NULL en cas d'échec
+  char * result = strstr(chaine1, chaine2)
+    ou NULL en cas d'échec
+  char * result = strpbrk(chaine1, chaine2)
+    ou NULL en cas d'échec
+    ex :  result = strchr(mail, "aeiouy");
+
+   ex :
+     char mail[150] = "fred@esgi.fr";
+     char *result ;
+     int index;
+     result = strchr(mail, '@');
+     if (result != NULL) {
+        printf("trouve");
+        index = result - mail;
+    }
+      else
+        printf("erreur");
+
+  ex :
+    - compter le nb de voyelles dans une chaine ([] interdit)
+    - supprimer toutes les voyelles d'une chaine ("fredo" => "frd")
+    int countVowels(char * string) {
+        int counter = 0;
+        char * result = string;
+
+        while( (result = strpbrk(result, "aeiouy")) != NULL) {
+            ++counter;
+            ++result;
+        }
+        return counter;
+    }
+
+
+    void deleteVowels(char * string) {
+        char * result = string;
+
+        while( (result = strpbrk(result, "aeiouy")) != NULL) {
+          // string contient difficile, result contient ifficile
+          // copier fficile à la place de ifficile
+          strcpy(result, result + 1);
+        }
+    }
+
+Remarque :  les conversions
+
+ chaine -> nombre
+
+   char string[25] = "a1";
+   int result = atoi(string); // attention le résultat est 0
+   double result = atof(string);
+   long result = atol(string);
+   sscanf(string,"%d %d %d", &v1, &v2,&v3);
+
+ nombre -> chaine
+   int n = 12;
+   double x = 12.5;
+   char string[50]
+   sprintf(string, "%d", n);
+   sprintf(string, "conversion : %.2lf %d", x, n);
