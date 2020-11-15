@@ -6,3 +6,7 @@
 #endif
 
 //space to write prototype and struct
+void menu();
+void errorCHar(char * str);
+char * input();
+char * reverseChar(char * str);

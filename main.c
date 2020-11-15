@@ -9,5 +9,6 @@
 # "abcdef" donne par exemple "defabc", "abcdefg" donne par exemple "defgabc".
 */
 int main(int argc, char ** argv) {
+    menu();
     return 0;
 }
