@@ -6,3 +6,8 @@
 #endif
 
 //space to write prototype and struct
+void menu();
+
+char * typeStr();
+int compar(char * str);
+int durationPrintPath(char *a, char *b);
