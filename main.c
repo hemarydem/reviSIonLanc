@@ -93,9 +93,9 @@ int main(int argc, char ** argv) {
     printf("\ncp1 = %s|\ncp2 = %s|\n", cp1, cp2);
 
     int result;
-    strcpy(ptr, "jesuiscontentd\'êtrecontentparcequejesuiscontent");
-    strcpy(ptr2, "content");
-    result = strspn(ptr, ptr2 );
+    strcpy(ptr, "je suis content d\'être content parceque je suis content");
+    strcpy(ptr2, "conte");
+    result = strspn("cjesuiscontentd\'êtrecontentparcequejesuiscontent", "conte" );
     printf("result = %d\n", result);
 
     const char str1[] = "ABCDEFG019874";
@@ -103,6 +103,27 @@ int main(int argc, char ** argv) {
 
     result= strspn(str1, str2);
     printf("result = %d\n", result);
-    
+
+    name =  strstr(ptr,ptr2);
+    // retour nle pointeur tu premier caractère de la première occurence
+
+    printf(" le retour de strstr() -> %s\n", name);
+
+    strcpy(ptr2, "je");
+    name = strpbrk("ABCDEF","ZFC");
+    printf(" le retour de strpbrk() -> %s\n", name);
+    //strcpy(name,"48");
+    result =  atoi("48");
+    printf("result après converstion  = %d\n", result);
+    free(name);
+    free(name2);
+    free(ville);
+    free(ville2);
+    free(i1);
+    free(i2);
+    free(cp1);
+    free(cp2);
+    free(ptr);
+    free(ptr2);
     return 0;
 }
